@@ -1,0 +1,240 @@
+//====================================================================================================
+.footer {
+  border-top: 1px solid #c8c4c4;
+
+  // .footer__wrapper
+  &__wrapper-desktop {
+    @include adaptiveValue("padding-top", 41, 20);
+    @include adaptiveValue("padding-bottom", 85, 30);
+    @media (max-width: $mobile) {
+      display: none;
+    }
+  }
+  &__wrapper-mobile {
+    display: none;
+    @include adaptiveValue("padding-top", 30, 20);
+    @include adaptiveValue("padding-bottom", 30, 30);
+    @media (max-width: $mobile) {
+      display: block;
+    }
+    @media (max-width: $mobileSmall) {
+      display: none;
+    }
+  }
+  &__wrapper-mobileSmall {
+    display: none;
+    padding-top: 20px;
+    padding-bottom: 30px;
+    @media (max-width: $mobileSmall) {
+      display: block;
+    }
+  }
+  // .footer__row-main
+  &__row-main {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 40px;
+    @media (max-width: $mobileSmall) {
+      flex-direction: column;
+      gap: 44px;
+    }
+  }
+  // .footer__row-main-item
+  &__row-main-item {
+    display: flex;
+    flex-direction: column;
+    @include adaptiveValue("gap", 20, 6);
+    @media (max-width: $mobileSmall) {
+      gap: 6px;
+    }
+  }
+  &__row-mobileSmall {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  &__row-mainMobole {
+    display: flex;
+    justify-content: space-between;
+  }
+  &__row-main-item:nth-child(1) {
+    @include adaptiveValue("gap", 33, 20);
+    min-height: 100%;
+    @media (max-width: $mobileSmall) {
+      gap: 6px;
+    }
+  }
+  // .footer__logo
+  &__logo {
+    display: block;
+    width: 169px;
+    @include adaptiveValue("width", 169, 95);
+    @include adaptiveValue("height", 100, 56);
+    height: 100px;
+    background: url("@img/logo.svg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    @media (max-width: $mobileSmall) {
+      width: 127px;
+      height: 74px;
+    }
+  }
+  // .footer__icon-row
+  &__icon-row {
+    display: flex;
+    align-items: center;
+    @include adaptiveValue("gap", 42, 20);
+    @media (max-width: $mobile) {
+      flex: 1 0 auto;
+      align-items: flex-start;
+    }
+    @media (max-width: $mobileSmall) {
+      justify-content: space-between;
+      margin-top: 20px;
+      align-items: center;
+    }
+  }
+  // .footer__icon
+  &__icon.what {
+    width: 28px;
+    height: 28px;
+    @include adaptiveValue("width", 28, 19);
+    @include adaptiveValue("height", 28, 19);
+    display: block;
+    background: url("@img/whatsapp.svg");
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  &__icon.inst {
+    width: 28px;
+    height: 28px;
+    @include adaptiveValue("width", 28, 19);
+    @include adaptiveValue("height", 28, 19);
+    display: block;
+    background: url("@img/inst.svg");
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  &__icon.mail {
+    width: 30px;
+    height: 21px;
+    @include adaptiveValue("width", 30, 20);
+    @include adaptiveValue("height", 21, 14);
+    display: block;
+    background: url("@img/mail.svg");
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  // .footer__inform
+  &__inform {
+    font-family: "Inter", sans-serif;
+    font-weight: 400;
+    @include adaptiveValue("font-size", 16, 12);
+    line-height: 150%;
+    @media (max-width: $mobile) {
+      display: none;
+    }
+    @media (max-width: $mobileSmall) {
+      display: block;
+    }
+  }
+  // .footer__mail
+  &__mail {
+    font-family: "Inter", sans-serif;
+    font-weight: 400;
+    @include adaptiveValue("font-size", 16, 12);
+    line-height: 150%;
+    @media (max-width: $mobile) {
+      display: none;
+    }
+    @media (max-width: $mobileSmall) {
+      display: block;
+      margin-top: 20px;
+    }
+  }
+  // .footer__item
+  &__item {
+    font-family: "Inter", sans-serif;
+    font-weight: 600;
+    @include adaptiveValue("font-size", 16, 12);
+    line-height: 19px;
+  }
+  &__item.card {
+    @include adaptiveValue("margin-top", 36, 4);
+  }
+  // .footer__item-link
+  &__item-link {
+    font-family: "Montserrat", sans-serif;
+    font-weight: 300;
+    font-size: 16px;
+    @include adaptiveValue("font-size", 16, 10);
+    line-height: 20px;
+  }
+  // .footer__card-row
+  &__card-row {
+    display: flex;
+    @include adaptiveValue("gap", 20, 16);
+  }
+  // .footer__card-item
+  &__card-item:nth-child(1) {
+    width: 63px;
+    height: 40px;
+    @include adaptiveValue("width", 63, 47);
+    @include adaptiveValue("height", 40, 30);
+    display: block;
+    background: url("@img/visa.svg");
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  &__card-item:nth-child(2) {
+    width: 63px;
+    height: 40px;
+    @include adaptiveValue("width", 63, 47);
+    @include adaptiveValue("height", 40, 30);
+    display: block;
+    background: url("@img/mastercard.svg");
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  // .footer__row-bottom
+  &__row-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    @media (max-width: $mobile) {
+      flex-direction: column;
+      align-items: center;
+      gap: 28px;
+    }
+    @media (max-width: $mobileSmall) {
+      gap: 20px;
+    }
+  }
+  &__row-bottom div {
+    font-family: "Inter", sans-serif;
+    font-weight: 100;
+    @include adaptiveValue("font-size", 16, 12);
+    line-height: 19px;
+  }
+  // .footer__link-up
+  &__link-up {
+    display: flex;
+    background: #ebebeb;
+    border-radius: 10px;
+    width: 212px;
+    height: 39px;
+    justify-content: center;
+    align-items: center;
+    @media (max-width: $mobile) {
+      display: none;
+    }
+  }
+  &__link-up span {
+    font-family: "Inter", sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 19px;
+  }
+}
+
+//====================================================================================================
