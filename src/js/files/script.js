@@ -43,3 +43,90 @@ $(document).ready(function () {
       .slideToggle(300);
   });
 });
+
+$(document).ready(function () {
+  $("#scroll_top").click(function () {
+    $("body,html").animate(
+      {
+        scrollTop: 0,
+      },
+      500
+    );
+    return false;
+  });
+});
+
+// $(document).ready(function () {
+//   var quantity = 0;
+//   var dec = document.querySelectorAll(".quantityDec");
+//   var inc = document.querySelectorAll(".quantityInc");
+//   var valueQ = document.querySelectorAll(".quantityValue");
+//   console.log(dec);
+//   console.log(inc);
+//   $(valueQ).html(quantity);
+//   $(dec).click(function () {
+//     if (quantity > 0) {
+//       quantity -= 1;
+//     }
+//     $(valueQ).html(quantity);
+//   });
+//   $(inc).click(function () {
+//     quantity += 1;
+//     $(valueQ).html(quantity);
+//   });
+// });
+$(document).ready(function () {
+  $("body").on("click", ".number-minus, .number-plus", function () {
+    var $row = $(this).closest(".number");
+    var $input = $row.find(".number-text");
+    var step = $row.data("step");
+    var val = parseFloat($input.val());
+    if ($(this).hasClass("number-minus")) {
+      val -= step;
+    } else {
+      val += step;
+    }
+    $input.val(val);
+    $input.change();
+    return false;
+  });
+
+  $("body").on("change", ".number-text", function () {
+    var $input = $(this);
+    var $row = $input.closest(".number");
+    var step = $row.data("step");
+    var min = parseInt($row.data("min"));
+    var max = parseInt($row.data("max"));
+    var val = parseFloat($input.val());
+    if (isNaN(val)) {
+      val = step;
+    } else if (min && val < min) {
+      val = min;
+    } else if (max && val > max) {
+      val = max;
+    }
+    $input.val(val);
+  });
+});
+
+
+
+$(document).ready(function () {
+    $("body").on("click", ".checkLike", function () {
+      $(this).toggleClass("redLike");
+    });
+
+  // $(".header__spoiler-block-titlePerson").click(function (e) {
+
+  // });
+  // $(".header__spoiler-block-titleMulti").click(function (e) {
+  //   $(".header__spoiler-listPerson")
+  //     .removeClass("activeSpoilerList")
+  //     .slideUp(300);
+  //   $(".header__spoiler-block-titlePerson").removeClass("activeSpoilerList");
+  //   $(".header__spoiler-block-titleMulti").toggleClass("activeSpoilerList");
+  //   $(".header__spoiler-listMulti")
+  //     .toggleClass("activeSpoilerList")
+  //     .slideToggle(300);
+  // });
+});

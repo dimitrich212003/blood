@@ -1,12 +1,15 @@
 //====================================================================================================
 .footer {
   border-top: 1px solid #c8c4c4;
-
   // .footer__wrapper
   &__wrapper-desktop {
     @include adaptiveValue("padding-top", 41, 20);
-    @include adaptiveValue("padding-bottom", 85, 30);
-    @media (max-width: $mobile) {
+    padding-bottom: 30px;
+    background: url("@img/footer.png");
+    background-position: 0 0;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    @media (max-width: $tablet) {
       display: none;
     }
   }
@@ -14,7 +17,7 @@
     display: none;
     @include adaptiveValue("padding-top", 30, 20);
     @include adaptiveValue("padding-bottom", 30, 30);
-    @media (max-width: $mobile) {
+    @media (max-width: $tablet) {
       display: block;
     }
     @media (max-width: $mobileSmall) {
@@ -83,8 +86,8 @@
   &__icon-row {
     display: flex;
     align-items: center;
-    @include adaptiveValue("gap", 42, 20);
-    @media (max-width: $mobile) {
+    @include adaptiveValue("gap", 28, 10);
+    @media (max-width: $tablet) {
       flex: 1 0 auto;
       align-items: flex-start;
     }
@@ -115,6 +118,22 @@
     background-repeat: no-repeat;
     background-size: cover;
   }
+  &__icon.vk {
+    width: 28px;
+    height: 19px;
+    @include adaptiveValue("width", 28, 19);
+    @include adaptiveValue("height", 19, 13);
+    display: block;
+    background: url("@img/vk.svg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    @media (max-width: $tablet) {
+      margin-top: 5px;
+    }
+    @media (max-width: $mobileSmall) {
+      margin-top: 0;
+    }
+  }
   &__icon.mail {
     width: 30px;
     height: 21px;
@@ -124,27 +143,40 @@
     background: url("@img/mail.svg");
     background-repeat: no-repeat;
     background-size: cover;
+    @media (max-width: $tablet) {
+      margin-top: 5px;
+    }
+    @media (max-width: $mobileSmall) {
+      margin-top: 0;
+    }
   }
   // .footer__inform
   &__inform {
-    font-family: "Inter", sans-serif;
     font-weight: 400;
     @include adaptiveValue("font-size", 16, 12);
     line-height: 150%;
-    @media (max-width: $mobile) {
+    font-family: "Lora", serif;
+    @media (max-width: $tablet) {
       display: none;
     }
     @media (max-width: $mobileSmall) {
       display: block;
     }
+    & p:nth-child(4) {
+      font-weight: 600;
+      @include adaptiveValue("font-size", 20, 14);
+      margin-top: 10px;
+    }
   }
   // .footer__mail
   &__mail {
-    font-family: "Inter", sans-serif;
+    font-family: "Lora", serif;
     font-weight: 400;
+    font-size: 16px;
+
     @include adaptiveValue("font-size", 16, 12);
     line-height: 150%;
-    @media (max-width: $mobile) {
+    @media (max-width: $tablet) {
       display: none;
     }
     @media (max-width: $mobileSmall) {
@@ -154,10 +186,10 @@
   }
   // .footer__item
   &__item {
-    font-family: "Inter", sans-serif;
+    @include adaptiveValue("font-size", 20, 12);
+    font-family: "Lora", "serif";
     font-weight: 600;
-    @include adaptiveValue("font-size", 16, 12);
-    line-height: 19px;
+    line-height: 30px;
   }
   &__item.card {
     @include adaptiveValue("margin-top", 36, 4);
@@ -165,10 +197,10 @@
   // .footer__item-link
   &__item-link {
     font-family: "Montserrat", sans-serif;
-    font-weight: 300;
-    font-size: 16px;
+    font-weight: 400;
     @include adaptiveValue("font-size", 16, 10);
-    line-height: 20px;
+    @include adaptiveValue("line-height", 20, 12);
+    color: #737272;
   }
   // .footer__card-row
   &__card-row {
@@ -198,10 +230,16 @@
   }
   // .footer__row-bottom
   &__row-bottom {
+    &:nth-child(1) {
+      font-family: "Lora", "serif";
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 20px;
+    }
     display: flex;
     justify-content: space-between;
     align-items: center;
-    @media (max-width: $mobile) {
+    @media (max-width: $tablet) {
       flex-direction: column;
       align-items: center;
       gap: 28px;
@@ -211,30 +249,58 @@
     }
   }
   &__row-bottom div {
-    font-family: "Inter", sans-serif;
-    font-weight: 100;
+    font-family: "Lora", "serif";
+    font-weight: 400;
     @include adaptiveValue("font-size", 16, 12);
-    line-height: 19px;
+    line-height: 20px;
   }
   // .footer__link-up
   &__link-up {
     display: flex;
-    background: #ebebeb;
+    background: #000000;
+    color: #fff;
     border-radius: 10px;
-    width: 212px;
+    width: 180px;
     height: 39px;
     justify-content: center;
     align-items: center;
-    @media (max-width: $mobile) {
+    transition: 0.3s;
+    @media (max-width: $tablet) {
       display: none;
+    }
+    &:hover {
+      background: inherit;
+      color:#000000;
     }
   }
   &__link-up span {
-    font-family: "Inter", sans-serif;
     font-weight: 400;
-    font-size: 16px;
-    line-height: 19px;
+    font-size: 22px;
+    line-height: 29px;
+    font-family: "Montserrat", sans-serif;
   }
 }
 
+.multiItem {
+  font-family: "Lora", serif;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 26px;
+}
+.bloodItem {
+  font-family: "Captureit";
+  font-style: normal;
+  font-weight: 600;
+  line-height: 28px;
+  @include adaptiveValue("font-size", 18, 12);
+}
+.weGet {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 20px;
+}
+.multiDesktop{
+  background: none;
+}
 //====================================================================================================
